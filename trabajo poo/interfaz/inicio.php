@@ -287,11 +287,6 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
 					<li><button class="btn btn-danger btn-eliminar-proveedor" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
-<<<<<<< HEAD
-=======
-					<li><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveedornombre="<?php echo $item['prov_nombre']; ?>" proveedorcorreo="<?php echo $item['prov_correo']; ?>" proveedortelefono="<?php echo $item['prov_telefono']; ?>" onclick="mostrarFormularioModProveedor(this)">Editar</button>
-                    </li>
->>>>>>> e6d25a3609fda83f6a8312f5440b2e7a588f44a8
                     </ul>
                     </div>
                 <?php endforeach; ?>
@@ -403,7 +398,7 @@ if (!isset($_SESSION["adm_id"])) {
 							<td> <?php echo $row["nombre_repartidor"]?></td> 
 							<td> <?php echo $row["fecha_recibido"]?></td> 
 							<td><button type="button" class="btn btn-primary" pro_id="<?php echo $row['pro_id']; ?>" pro_tienda_ID="<?php echo $row['pro_tienda_id']; ?>" pro_precioVenta="<?php echo $row['pro_precioVenta']; ?>" pro_tienda_cant="<?php echo $row['pro_tienda_cant']; ?>" persona_entrega_producto="<?php echo $row['nombre_repartidor']; ?>" fecha_entrega_producto="<?php echo $row['fecha_recibido']; ?>" onclick="mostrarFormularioModProTienda(this)">Editar</button></td>
-						    <td><button class="btn btn-danger .btn-eliminar-producto-tienda" data-id-productoTienda="<?php echo $row['pro_tienda_id']; ?>">Eliminar</button></td>
+						    <td><button class="btn btn-danger btn-eliminar-producto-tienda" data-id-productoTienda="<?php echo $row['pro_tienda_id']; ?>">Eliminar</button></td>
 							</tr>
 						<?php $totalProductosEnTienda = $row["pro_tienda_cant"] + $totalProductosEnTienda?>
 						<?php }?>
@@ -930,6 +925,6 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/updateVentas.js"></script>	
 	<script src="../dist/updateCompras.js"></script>	
 	<script src="../dist/updateProveedor.js"></script>
-	<script src="../dist/eliminarProdcutoTienda.js"></script>
+	<script src="../dist/eliminarProductoTienda.js"></script>
 </body>
 </html>

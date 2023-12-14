@@ -1,7 +1,7 @@
 $(document).ready(function() {
+    console.log("working")
     $('.btn-eliminar-producto-tienda').on('click', function() {
-        console.log("working")
-        var idProductoTienda = $(this).data('id-productoTienda');
+        var idProductoTienda = $(this).data('id-productotienda');
         console.log(idProductoTienda);
         Swal.fire({
             title: "Seguro que quieres eliminar este producto de la tienda?",
@@ -17,7 +17,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url: '../crud/ProductoTienDelete.php',
                     data: {
-                         id:idProveedor},
+                         id:idProductoTienda},
                     success: function(response) {
                         location.reload()
                     },
