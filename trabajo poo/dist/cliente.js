@@ -67,13 +67,6 @@ function cerrarFormCrearVenta(){
     document.getElementById("FormCrearCompra").style.display = "none";
 }
 
-function mostrarFormularioModCompra(){
-    document.getElementById("FormModifyCompra").style.display = "block";
-}
-
-function cerrarFormModVenta(){
-    document.getElementById("FormModifyCompra").style.display = "none";
-}
 
 //mostrar edicion perfil
 

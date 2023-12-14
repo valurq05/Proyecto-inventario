@@ -439,9 +439,7 @@ if (!isset($_SESSION["adm_id"])) {
 
 			<div class="Botones">
 				<button class="AddProducto" id="AgregarProducto" onclick="mostrarFormularioAddVenta()">Agregar compra</button>
-				<button class="ModificarProducto" id="ModificarProducto" onclick="mostrarFormularioModCompra()">Modificar Compra</button>
-				<button class="EliminarProducto" id="EliminarProducto">Eliminar</button>
-
+			
 				<div id="FormCrearCompra" class="FormCrearCompra" style="display: none">
 			<span class="cerrar" id="cerrarBtn2" onclick="cerrarFormCrearVenta()">&times;</span>
 				<h3 class="pt-3 font-weight-bold">Agregar Compra</h3>
@@ -474,13 +472,13 @@ if (!isset($_SESSION["adm_id"])) {
 
 
 			<div id="FormModifyCompra" class="FormModifyCompra" style="display: none">
-			<span class="cerrar" id="cerrarBtn2"  onclick="cerrarFormModVenta()">&times;</span>
+			<span class="cerrar" id="cerrarBtn2"  onclick="cerrarFormularioModComprass()">&times;</span>
 			<h3 class="pt-3 font-weight-bold">Modificar Compra</h3>
 			<form action="../crud/CompraUpdate.php" method="post">
 			<p>Código Tienda: <input value = "<?php echo $adminTienda ?>" name="cod_tienda" readonly onmousedown="return false;"></p>
-            <p>Código compra: <input type="text" name="codCompra" required></p>
+            <p>Código compra: <input id="compra-codigo" type="text" name="codCompra" required></p>
 		     <p>Producto:</p>
-			<select name="codProducto" id="productosCompraADD" class="form-control" required>
+			<select name="codProducto" id="compra-producto-select" class="form-control" required>
             <option value="" disabled selected>Selecciona el producto</option>
     		<?php
     		$consulta = $conexion->query("SELECT pro_id, pro_nombre, prov_nombre FROM producto INNER JOIN proveedor ON producto.prov_id = proveedor.prov_id");
@@ -489,9 +487,18 @@ if (!isset($_SESSION["adm_id"])) {
     		}
     		?>
 			</select>
-			<p>Proveedor: <input type="text" id="proveedorCompraADD" name="prov_id" required></p>
-            <p>Precio Proveedor: <input type="text" name="precioProveedor" required></p>
-            <p>Cantidad: <input type="text" name="cant_producto" required></p>
+			<p>Proveedor:</p>
+			<select name="prov_id" id="compra-proveedor-select" class="form-control" required>
+        	<option value="" disabled selected>Selecciona el proveedor</option>
+        	<?php
+        	$consultaProveedor = $conexion->query("SELECT prov_id, prov_nombre FROM proveedor");
+        	while ($rowProveedor = $consultaProveedor->fetch_array()) {
+        	    echo "<option value='{$rowProveedor['prov_id']}'>{$rowProveedor['prov_nombre']}</option>";
+        	}
+        	?>
+    		</select>
+            <p>Precio Proveedor: <input id="compra-precio-proveedor" type="text" name="precioProveedor" required></p>
+            <p>Cantidad: <input type="text" id="compra-cantidad" name="cant_producto" required></p>
             <p><input type="submit" value="Enviar"></p>
     		</form>
 			</div>
@@ -518,7 +525,7 @@ if (!isset($_SESSION["adm_id"])) {
 						<tbody>
 						<?php
 						$totalCompras = 0;
-						$consulta = $conexion ->query("SELECT c.com_id, p.prov_id, pv.prov_nombre, p.pro_nombre, c.com_cantidad, c.com_pre_provee
+						$consulta = $conexion ->query("SELECT c.com_id, pv.prov_id, pv.prov_nombre, p.pro_id, p.pro_nombre, c.com_cantidad, c.com_pre_provee
 						FROM producto p
 						INNER JOIN compra c
 						ON p.pro_id = c.pro_id
@@ -535,8 +542,8 @@ if (!isset($_SESSION["adm_id"])) {
 							<td><?php  $multiplicacion = $row['com_pre_provee'] * $row['com_cantidad'];
 							echo $multiplicacion;
 						?></td> 
-							<td><button type="button" class="btn btn-primary" cod_compra="<?php echo $row['com_id']; ?>" prov_id="<?php echo $row['prov_id']; ?>" pro_nombre="<?php echo $row['pro_nombre']; ?>" pro_tienda_cant="<?php echo $row['pro_tienda_cant']; ?>" com_cantidad="<?php echo $row['com_cantidad']; ?>" compra_pre_proveedor="<?php echo $row['com_pre_provee']; ?>" onclick="mostrarFormularioModCompras(this)">Editar</button></td>
-						    <td><button class="btn btn-danger btn-eliminar" data-id-producto="<?php echo $row['pro_id']; ?>">Eliminar</button></td>
+							<td><button type="button" class="btn btn-primary" cod_compra="<?php echo $row['com_id']; ?>" prov_id="<?php echo $row['prov_id']; ?>" pro_id="<?php echo $row['pro_id']; ?>" com_cantidad="<?php echo $row['com_cantidad']; ?>" compra_pre_proveedor="<?php echo $row['com_pre_provee']; ?>" onclick="mostrarFormularioModCompras(this)">Editar</button></td>
+						    <td><button class="btn btn-danger btn-eliminar" data-id-producto="<?php echo $row['com_id']; ?>">Eliminar</button></td>
 							</tr>
 
 							<?php 
@@ -919,8 +926,12 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/script.js"></script>
 	<script src="../dist/updateProducto.js"></script>
 	<script src="../dist/updateProductoTienda.js"></script>
+<<<<<<< HEAD
 	<script src="../dist/eliminarProducto.js"></script>
 
+=======
+	<script src="../dist/updateCompras.js"></script>
+>>>>>>> 7dd0b93453a587aa4997e89819f8679639bd1824
 	
 </body>
 </html>
