@@ -16,8 +16,24 @@ class Conexion extends PDO{
             exit;
         }
     }
+
+    public function obtenerDatos($sql)
+    {
+    $resultados = array();
+    $consulta = $this->prepare($sql);
+    $consulta->execute();
+
+    if ($consulta) {
+        $resultados = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $resultados;
+    }
+
+
 }
 
+    
 
 
 

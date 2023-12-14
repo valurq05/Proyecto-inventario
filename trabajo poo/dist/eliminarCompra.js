@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.btn-eliminar-compra').on('click', function() {
         console.log("working")
         var idCompra = $(this).data('id-compra');
-        console.log(idProveedor)
+        console.log(idCompra)
         Swal.fire({
             title: "Seguro que quieres eliminar esta compra?",
             text: "No podrás reversar esta accion!",
@@ -17,12 +17,12 @@ $(document).ready(function() {
                     type: 'POST',
                     url: '../crud/CompraDelete.php',
                     data: {
-                         id:idProveedor},
+                         id:idCompra},
                     success: function(response) {
                         location.reload()
                     },
                     error: function(error) {
-                        console.error('Error al eliminar el proveedor', error);
+                        console.error('Error al eliminar la compra', error);
                     }
                 });
             }

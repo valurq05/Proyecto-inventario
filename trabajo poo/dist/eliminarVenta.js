@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    console.log("working")
-    $('.btn-eliminar-producto-tienda').on('click', function() {
-        var idProductoTienda = $(this).data('id-productotienda');
-        console.log(idProductoTienda);
+    $('.btn-eliminar-venta').on('click', function() {
+        console.log("working")
+        var idVenta = $(this).data('id-venta');
+        console.log(idVenta)
         Swal.fire({
-            title:"Seguro que quieres eliminar este producto de la tienda?",
+            title: "Seguro que quieres eliminar esta venta?",
             text: "No podrás reversar esta accion!",
             icon: "warning",
             showCancelButton: true,
@@ -15,17 +15,17 @@ $(document).ready(function() {
             if (result.isConfirmed) {
                 $.ajax({
                     type: 'POST',
-                    url: '../crud/ProductoTienDelete.php',
+                    url: '../crud/VentaDelete.php',
                     data: {
-                         id:idProductoTienda},
+                         id:idVenta},
                     success: function(response) {
                         location.reload()
                     },
                     error: function(error) {
-                        console.error('Error al eliminar el producto en tienda', error);
+                        console.error('Error al eliminar la venta', error);
                     }
                 });
             }
-          });    
+          });
     });
 });

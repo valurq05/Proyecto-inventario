@@ -84,11 +84,15 @@
 
     
     public static function obtenerDatosParaGrafica()
-    {
+{
     $conexion = new Conexion();
-    $consulta = $conexion->obtenerDatos(" SELECT t.pro_tienda_id, t.pro_tienda_cant, p.pro_nombre
-    FROM " . self::TABLA . " t INNER JOIN producto p ON t.pro_id = p.pro_id
-    ORDER BY t.pro_tienda_id");
+    $consulta = $conexion->obtenerDatos("
+        SELECT p.pro_id, SUM(t.pro_tienda_cant) as total_cantidad, p.pro_nombre
+        FROM " . self::TABLA . " t
+        INNER JOIN producto p ON t.pro_id = p.pro_id
+        GROUP BY p.pro_id, p.pro_nombre
+        ORDER BY p.pro_id
+    ");
     return $consulta;
     }
 

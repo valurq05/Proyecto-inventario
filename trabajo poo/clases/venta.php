@@ -110,14 +110,16 @@ class Venta{
         
         public static function obtenerDatosParaGrafica()
         {
-             $conexion = new Conexion();
-             $consulta = $conexion->obtenerDatos("SELECT p.pro_nombre, SUM(t.ven_cant) as total_cantidad
-             FROM " . self::TABLA . " t
-             INNER JOIN producto p ON t.pro_id = p.pro_id
-             GROUP BY p.pro_nombre
-             ORDER BY total_cantidad DESC
-             ");
-             return $consulta;
+            $conexion = new Conexion();
+            $consulta = $conexion->obtenerDatos("
+            SELECT p.pro_nombre, v.ven_fecha, SUM(p.pro_precioVenta) AS totalDiario
+            FROM " . self::TABLA . " v
+            INNER JOIN producto p ON v.pro_id = p.pro_id
+            WHERE v.ven_fecha >= CURDATE() - INTERVAL 5 DAY
+            GROUP BY DATE(v.ven_fecha)
+            ORDER BY v.ven_fecha DESC
+            ");
+            return $consulta;
         }
 
 

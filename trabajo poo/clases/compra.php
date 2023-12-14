@@ -125,8 +125,7 @@ class Compra{
              FROM " . self::TABLA . " t
              INNER JOIN producto p ON t.pro_id = p.pro_id
              GROUP BY p.pro_nombre
-             ORDER BY total_cantidad DESC
-             ");
+             ORDER BY total_cantidad DESC");
              return $consulta;
         }
         

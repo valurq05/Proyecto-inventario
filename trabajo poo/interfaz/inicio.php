@@ -17,6 +17,9 @@ $administrador = Administrador::mostrar();
 $venta = Venta::mostrar();
 $compra = Compra::mostrar();
 $cliente = Cliente::mostrar();
+$datosProductosTienda = ProductoEnTienda::obtenerDatosParaGrafica();
+$datosVentasTienda = Venta::obtenerDatosParaGrafica();
+$datosComprasTienda = Compra::obtenerDatosParaGrafica();
 
 
 session_start();
@@ -44,6 +47,7 @@ if (!isset($_SESSION["adm_id"])) {
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>ProSystem</title>
 </head>
 <body>
@@ -287,12 +291,8 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
 					<li><button class="btn btn-danger btn-eliminar-proveedor" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
-<<<<<<< HEAD
-                    </ul>
-=======
-                    <li><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveedornombre="<?php echo $item['prov_nombre']; ?>" proveedorcorreo="<?php echo $item['prov_correo']; ?>" proveedortelefono="<?php echo $item['prov_telefono']; ?>" onclick="mostrarFormularioModProveedor(this)">Editar</button></li>
+					<li><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveedornombre="<?php echo $item['prov_nombre']; ?>" proveedorcorreo="<?php echo $item['prov_correo']; ?>" proveedortelefono="<?php echo $item['prov_telefono']; ?>" onclick="mostrarFormularioModProveedor(this)">Editar</button></li>
 				    </ul>
->>>>>>> 1264fa60742d932ecbfd82b1f8a783c8a9cd499c
                     </div>
                 <?php endforeach; ?>
             </div>			
@@ -714,7 +714,7 @@ if (!isset($_SESSION["adm_id"])) {
 							$totalVentas = $multiplicacion + $totalVentas;
 						?>
 						 <td><button type="button" class="btn btn-primary" cod_venta="<?php echo $row['ven_id']; ?>" cliente_id="<?php echo $row['cli_id']; ?>" pro_id="<?php echo $row['pro_id']; ?>" ven_cantidad="<?php echo $row['ven_cant']; ?>" ven_fecha="<?php echo $row['ven_fecha']; ?>" onclick="mostrarFormularioModVentas(this)">Editar</button></td>
-                		 <td><button class="btn btn-danger btn-eliminar" data-id-venta="<?php echo $row['ven_id'];?>">Eliminar</button></td>
+                		 <td><button class="btn btn-danger btn-eliminar-venta" data-id-venta="<?php echo $row['ven_id'];?>">Eliminar</button></td>
            				
                     	</tr>
 						  <?php } ?>
@@ -910,7 +910,18 @@ if (!isset($_SESSION["adm_id"])) {
 		</div>
 
 		<!-- Final DashBoard -->
+		<script>
 
+			document.addEventListener('DOMContentLoaded', function () {
+        
+		inicializarGraficoBarras('TiendasCantidadProChart',<?php echo json_encode($datosProductosTienda); ?>);
+		inicializarGraficoTorta('productoVentasChart', <?php echo json_encode($datosVentasTienda); ?>)
+		inicializarGraficoBarraCompras('productoComprasChart', <?php echo json_encode($datosComprasTienda); ?>)
+
+
+	});
+
+		</script>
 		</main>
 
 		<!-- MAIN -->
@@ -929,5 +940,8 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/updateCompras.js"></script>	
 	<script src="../dist/updateProveedor.js"></script>
 	<script src="../dist/eliminarProductoTienda.js"></script>
+	<script src="../dist/eliminarCompra.js"></script>
+	<script src="../dist/eliminarVenta.js"></script>
+	<script src="../dist/graficas.js"></script>
 </body>
 </html>
