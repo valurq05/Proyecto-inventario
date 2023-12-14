@@ -252,8 +252,6 @@ if (!isset($_SESSION["adm_id"])) {
 
 			<div class="Botones">
 				<button class="AddProducto" id="AgregarProducto" onclick="mostrarFormularioProveedor()">Agregar Proveedor</button>
-				<button class="ModificarProducto" id="ModificarProducto" onclick="mostrarFormularioModProveedor()">Modificar Proveedor</button>
-				<button class="EliminarProducto" id="EliminarProducto">Eliminar</button>
 
 			</div>
 
@@ -272,10 +270,10 @@ if (!isset($_SESSION["adm_id"])) {
 			<span class="cerrar" id="cerrarBtn2" onclick="cerrarFormularioModProveedor()">&times;</span>
 			<h3 class="pt-3 font-weight-bold">Modificar Proveedor</h3>
 			<form action="../crud/ProveedorUpdate.php" method="post">
-            <p>Código proveedor:<input type="text" name="prov_id" required></p>
-            <p>Nombre proveedor:<input type="text" name="prov_nombre" required></p>
-            <p>Número de telefono:<input type="text" name="prov_telefono" required></p>
-            <p>Correo: <input type="email" name="prov_correo" required></p>
+            <p>Código proveedor:<input type="text" id="proveedor-codigo" name="prov_id" required></p>
+            <p>Nombre proveedor:<input type="text" id="proveedor-nombre" name="prov_nombre" required></p>
+            <p>Número de telefono:<input type="text" id="proveedor-telefono" name="prov_telefono" required></p>
+            <p>Correo: <input type="email" name="prov_correo" id="proveedor-correo" required></p>
             <p><input type="submit" value="Enviar"></p>
             </form>
 			</div>
@@ -289,11 +287,10 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
 					<td><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveeNombre="<?php echo $row['prov_nombre']; ?>" proveedorCorreo="<?php echo $row['prov_correo']; ?>" proveedorTelefono="<?php echo $row['pro__telefono']; ?>"  onclick="mostrarFormularioModProTienda(this)">Editar</button></td>
-					<li><button class="btn btn-danger btn-eliminar" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
+					<li><button class="btn btn-danger btn-eliminar" data-id-proveedor="<?php echo $item['prov_id'];?>">Eliminar</button></li>
                     </ul>
                     </div>
                 <?php endforeach; ?>
-        
             </div>			
 		</div>
 
@@ -308,7 +305,7 @@ if (!isset($_SESSION["adm_id"])) {
 				$consulta = $conexion ->query("SELECT t.tie_nombre FROM tienda t WHERE tie_id ='$adminTienda'");
 						while($row = $consulta ->fetch_array()){ ?>
 						<?php  $nombreTienda = $row["tie_nombre"];?>
-							<h1>Tienda: <?php echo $nombreTienda; ?></h1> 
+						<h1>Tienda: <?php echo $nombreTienda; ?></h1> 
 						<?php }?>
 
 					<ul class="breadcrumb">
