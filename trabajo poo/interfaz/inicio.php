@@ -539,7 +539,7 @@ if (!isset($_SESSION["adm_id"])) {
 							echo $multiplicacion;
 						?></td> 
 							<td><button type="button" class="btn btn-primary" cod_compra="<?php echo $row['com_id']; ?>" prov_id="<?php echo $row['prov_id']; ?>" pro_id="<?php echo $row['pro_id']; ?>" com_cantidad="<?php echo $row['com_cantidad']; ?>" compra_pre_proveedor="<?php echo $row['com_pre_provee']; ?>" onclick="mostrarFormularioModCompras(this)">Editar</button></td>
-						    <td><button class="btn btn-danger btn-eliminar" data-id-producto="<?php echo $row['com_id']; ?>">Eliminar</button></td>
+						    <td><button class="btn btn-danger btn-eliminar-compra" data-id-compra="<?php echo $row['com_id']; ?>">Eliminar</button></td>
 							</tr>
 
 							<?php 

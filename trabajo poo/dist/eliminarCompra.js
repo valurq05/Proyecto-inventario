@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    $('.btn-eliminar-proveedor').on('click', function() {
+    $('.btn-eliminar-compra').on('click', function() {
         console.log("working")
-        var idProveedor = $(this).data('id-proveedor');
+        var idCompra = $(this).data('id-compra');
         console.log(idProveedor)
         Swal.fire({
-            title: "Estás seguro de eliminar este proveedor?",
+            title: "Seguro que quieres eliminar esta compra?",
             text: "No podrás reversar esta accion!",
             icon: "warning",
             showCancelButton: true,
@@ -15,7 +15,7 @@ $(document).ready(function() {
             if (result.isConfirmed) {
                 $.ajax({
                     type: 'POST',
-                    url: '../crud/ProveedorDelete.php',
+                    url: '../crud/CompraDelete.php',
                     data: {
                          id:idProveedor},
                     success: function(response) {
