@@ -1,10 +1,10 @@
 $(document).ready(function() {
     $('.btn-eliminar-producto-tienda').on('click', function() {
-        console.log("working")
+        console.log("working");
         var idProductoTienda = $(this).data('id-productoTienda');
         console.log(idProductoTienda);
         Swal.fire({
-            title: "Seguro que quieres eliminar este producto de la tienda?",
+            title:"Seguro que quieres eliminar este producto de la tienda?",
             text: "No podrás reversar esta accion!",
             icon: "warning",
             showCancelButton: true,
@@ -17,7 +17,7 @@ $(document).ready(function() {
                     type: 'POST',
                     url: '../crud/ProductoTienDelete.php',
                     data: {
-                         id:idProveedor},
+                         id:idProductoTienda},
                     success: function(response) {
                         location.reload()
                     },
@@ -26,8 +26,6 @@ $(document).ready(function() {
                     }
                 });
             }
-          });
-
-    
+          });    
     });
 });
