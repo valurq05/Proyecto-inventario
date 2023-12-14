@@ -288,6 +288,7 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Nombre: <?php echo $item['prov_nombre'] ?> </li>
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
+					<li><button class="btn btn-danger btn-eliminar" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
                     </ul>
                     </div>
                 <?php endforeach; ?>
@@ -400,7 +401,7 @@ if (!isset($_SESSION["adm_id"])) {
 							<td> <?php echo $row["nombre_repartidor"]?></td> 
 							<td> <?php echo $row["fecha_recibido"]?></td> 
 							<td><button type="button" class="btn btn-primary" pro_id="<?php echo $row['pro_id']; ?>" pro_tienda_ID="<?php echo $row['pro_tienda_id']; ?>" pro_precioVenta="<?php echo $row['pro_precioVenta']; ?>" pro_tienda_cant="<?php echo $row['pro_tienda_cant']; ?>" persona_entrega_producto="<?php echo $row['nombre_repartidor']; ?>" fecha_entrega_producto="<?php echo $row['fecha_recibido']; ?>" onclick="mostrarFormularioModProTienda(this)">Editar</button></td>
-						        <td><button class="btn btn-danger btn-eliminar" data-id-producto="<?php echo $row['pro_id']; ?>">Eliminar</button></td>
+						    <td><button class="btn btn-danger btn-eliminar" data-id-producto="<?php echo $row['pro_id']; ?>">Eliminar</button></td>
 							</tr>
 
 						<?php $totalProductosEnTienda = $row["pro_tienda_cant"] + $totalProductosEnTienda?>

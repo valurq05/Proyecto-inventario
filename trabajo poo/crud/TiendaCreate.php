@@ -8,7 +8,7 @@ $tie_direccion = $_POST["tie_direccion"];
 $tienda = new Tienda($tie_nombre, $tie_direccion);
 
 $tienda->guardar();
-header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#tienda');
+header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#tienda');
 
 
 ?>
