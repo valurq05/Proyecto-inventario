@@ -456,15 +456,15 @@ if (!isset($_SESSION["adm_id"])) {
         		}
         		?>
     		</select>
-    <select name="proveedorSelect" id="proveedorSelect" class="form-control" required>
-        <option value="" disabled selected>Selecciona el proveedor</option>
-        <?php
-        $consultaProveedor = $conexion->query("SELECT prov_id, prov_nombre FROM proveedor");
-        while ($rowProveedor = $consultaProveedor->fetch_array()) {
+    		<select name="proveedorSelect" id="proveedorSelect" class="form-control" required>
+        	<option value="" disabled selected>Selecciona el proveedor</option>
+        	<?php
+        	$consultaProveedor = $conexion->query("SELECT prov_id, prov_nombre FROM proveedor");
+        	while ($rowProveedor = $consultaProveedor->fetch_array()) {
             echo "<option value='{$rowProveedor['prov_id']}'>{$rowProveedor['prov_nombre']}</option>";
-        }
-        ?>
-    </select>
+        	}
+        	?>
+    		</select>
         		<p>Precio Proveedor: <input type="text" name="precioProveedor" required></p>
         		<p>Cantidad: <input type="text" name="cant_producto" required></p>
         		<p><input type="submit" value="Enviar"></p>
@@ -583,9 +583,7 @@ if (!isset($_SESSION["adm_id"])) {
 
 			<div class="Botones">
 			<button class="AddCliente" id="AddCliente" onclick="mostrarFormularioCliente('formularioCliente')">Agregar cliente</button>
-				<button class="AddProducto" id="AgregarProducto" onclick=" mostrarFormularioCompra('formularioCliente')">Agregar venta</button>
-				<button class="ModificarProducto" id="ModificarProducto" onclick="mostrarFormularioModVenta('ModificarVenta')">Modificar venta</button>
-				<button class="EliminarProducto" id="EliminarProducto">Eliminar</button>
+			<button class="AddProducto" id="AgregarProducto" onclick=" mostrarFormularioCompra('formularioCliente')">Agregar venta</button>
 
 			</div>
 
@@ -636,15 +634,15 @@ if (!isset($_SESSION["adm_id"])) {
     		</form>
 			</div>
 
-			<div id="ModificarVenta" class="PopUp_ModificardPjro" style="display:none;">
-			<span class="cerrar" id="cerrarBtn2" onclick="cerrarFormularioModVenta()">&times;</span>
+			<div id="FormModificarVenta" class="PopUp_ModificardPjro" style="display:none;">
+			<span class="cerrar" id="cerrarBtn2" onclick="cerrarFormularioModVentas()">&times;</span>
 			<h3 class="pt-3 font-weight-bold">Modificar venta</h3>
 			<form action="../crud/VentaUpdate.php" method="post">
 			    <p>Código Tienda: <input value = "<?php echo $adminTienda ?>" name="cod_tienda" readonly onmousedown="return false;"></p>
-            	<p>Código venta: <input type="text" name="cod_venta" required></p>
-            	<p>Fecha: <input type="date" name="fecha_venta" required></p>
+            	<p>Código venta: <input type="text" id="venta-codigo" name="cod_venta" required></p>
+            	<p>Fecha: <input type="date" id="venta-fecha" name="fecha_venta" required></p>
             	<p>Cliente:</p>
-				<select name="cli_documento" id="venta_select2" class="form-control">
+				<select name="cli_documento" id="venta-documentocli" class="form-control">
                                 <option value="" disabled selected>Seleccione el cliente</option>
                                     <?php
                                         foreach ($cliente as $item): 
@@ -652,7 +650,7 @@ if (!isset($_SESSION["adm_id"])) {
                                      endforeach; ?>
                                 </select>
 				<p>Producto:</p>
-            	<select name="codProducto" class="form-control">
+            	<select name="codProducto" id="venta-productoid" class="form-control">
     			<option value="" disabled selected>Selecciona el producto</option>
 				<?php
     				$consulta = $conexion->query("SELECT pt.pro_id, p.pro_nombre
@@ -667,7 +665,7 @@ if (!isset($_SESSION["adm_id"])) {
         					    <?php echo $pro_nombre . ' - ID: ' . $pro_id; ?>
         					</option> <?php } ?>
 			</select>
-            	<p>Cantidad: <input type="text" name="cant_producto"></p>
+            	<p>Cantidad: <input type="text" id="venta-cantidad" name="cant_producto"></p>
             	<p><input type="submit" value="Enviar"></p>
     		</form>
 			</div>
@@ -693,7 +691,7 @@ if (!isset($_SESSION["adm_id"])) {
 						</thead>
 						<tbody>
 						<?php 
-						$consulta = $conexion->query("SELECT c.cli_documento, v.ven_fecha, v.ven_id, p.pro_id,p.pro_nombre, v.ven_cant, p.pro_precioVenta
+						$consulta = $conexion->query("SELECT v.cli_id, c.cli_documento, v.ven_fecha, v.ven_id, p.pro_id,p.pro_nombre, v.ven_cant, p.pro_precioVenta
 						FROM producto p
 						INNER JOIN venta v
 						ON p.pro_id = v.pro_id
@@ -716,10 +714,9 @@ if (!isset($_SESSION["adm_id"])) {
 							$contadorVentas = $row["ven_cant"] + $contadorVentas;
 							$totalVentas = $multiplicacion + $totalVentas;
 						?>
-						 <td>
-					
-                		<button class="btn btn-danger btn-eliminar" data-id-venta="<?php echo $row['ven_id'];?>">Eliminar</button>
-           				 </td>
+						 <td><button type="button" class="btn btn-primary" cod_venta="<?php echo $row['ven_id']; ?>" cliente_id="<?php echo $row['cli_id']; ?>" pro_id="<?php echo $row['pro_id']; ?>" ven_cantidad="<?php echo $row['ven_cant']; ?>" ven_fecha="<?php echo $row['ven_fecha']; ?>" onclick="mostrarFormularioModVentas(this)">Editar</button></td>
+                		 <td><button class="btn btn-danger btn-eliminar" data-id-venta="<?php echo $row['ven_id'];?>">Eliminar</button></td>
+           				
                     	</tr>
 						  <?php } ?>
 
@@ -927,12 +924,8 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/script.js"></script>
 	<script src="../dist/updateProducto.js"></script>
 	<script src="../dist/updateProductoTienda.js"></script>
-<<<<<<< HEAD
 	<script src="../dist/eliminarProducto.js"></script>
-
-=======
-	<script src="../dist/updateCompras.js"></script>
->>>>>>> 7dd0b93453a587aa4997e89819f8679639bd1824
-	
+	<script src="../dist/updateVentas.js"></script>	
+	<script src="../dist/updateCompras.js"></script>	
 </body>
 </html>

@@ -42,14 +42,6 @@ function cerrarFormularioCliente() {
     document.getElementById("formularioCliente").style.display = "none";
 }
 
-function mostrarFormularioModVenta(){
-    document.getElementById("ModificarVenta").style.display = "block";
-}
-
-function cerrarFormularioModVenta(){
-    document.getElementById("ModificarVenta").style.display = "none";
-}
-
 function mostrarFormularioCompra() {
     document.getElementById("FormularioCrearVenta").style.display = "block";
 }
