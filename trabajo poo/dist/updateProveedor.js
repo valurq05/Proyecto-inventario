@@ -1,17 +1,16 @@
-function mostrarFormularioModVentas(btnEditar) {
-    var provId = btnEditar.getAttribute("prov_id");
-    var provNombre = btnEditar.getAttribute("prov_nombre");
-    var provCorreo = btnEditar.getAttribute("prov_correo");
-    var provTelefono = btnEditar.getAttribute("prov_telefono");
-
+function mostrarFormularioModProveedor(btnEditar) {
+    var provId = btnEditar.getAttribute("proveedorid");
+    var provNombre = btnEditar.getAttribute("proveedornombre");
+    var provCorreo = btnEditar.getAttribute("proveedorcorreo");
+    var provTelefono = btnEditar.getAttribute("proveedortelefono");
 
     document.getElementById("proveedor-codigo").value = provId;
-    document.getElementById("proveedor-nombre").value = provNombre; 
-    document.getElementById("proveedor-telefono").value = provCorreo;
-    document.getElementById("proveedor-correo").value = provTelefono;
+    document.getElementById("proveedor-nombre").value = provNombre;
+    document.getElementById("proveedor-telefono").value = provTelefono;
+    document.getElementById("proveedor-correo").value = provCorreo;
     document.getElementById("FormModProveedor").style.display = "block";
 }
 
-function cerrarFormularioModVentas() {
+function cerrarFormularioModProveedor() {
     document.getElementById("FormModProveedor").style.display = "none";
 }
