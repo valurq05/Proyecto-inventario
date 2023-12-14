@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+.success{
+    background: rgb(45, 118, 151) !important;
+    color: black;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.error{
+    background-color: rgb(161, 38, 38);
+    color: black;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+
+body {
+    height: 100vh;
+    background: linear-gradient(to top, #c9c9ff 50%, #9090fa 90%) no-repeat
+}
+
+.container {
+    margin: 50px auto
+}
+
+.panel-heading {
+    text-align: center;
+    margin-bottom: 10px
+}
+
+#forgot {
+    min-width: 100px;
+    margin-left: auto;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.form-inline label {
+    padding-left: 10px;
+    margin: 0;
+    cursor: pointer
+}
+
+.btn.btn-primary {
+    margin-top: 20px;
+    border-radius: 15px
+}
+
+.panel {
+    min-height: 380px;
+    box-shadow: 20px 20px 80px rgb(218, 218, 218);
+    border-radius: 12px
+}
+
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: #4343ff
+}
+
+input[type='text'],
+input[type='password'] {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%
+}
+
+.fa-eye-slash.btn {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative
+}
+
+a[target='_blank'] {
+    position: relative;
+    transition: all 0.1s ease-in-out
+}
+
+.bordert {
+    border-top: 1px solid #aaa;
+    position: relative
+}
+
+.bordert:after {
+    content: "or connect with";
+    position: absolute;
+    top: -13px;
+    left: 33%;
+    background-color: #fff;
+    padding: 0px 8px
+}
+
+@media(max-width: 360px) {
+    #forgot {
+        margin-left: 0;
+        padding-top: 10px
+    }
+
+    body {
+        height: 100%
+    }
+
+    .container {
+        margin: 30px 0
+    }
+
+    .bordert:after {
+        left: 25%
+    }
+}
+
+.registro-form {
+    margin: 50px auto;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registro-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.registro-form input[type='text'],
+.registro-form input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.registro-form button[type='submit'] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.registro-form button[type='submit']:hover {
+    background-color: #0056b3;
+}
+
+.registro-form a {
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 10px;
+    display: inline-block;
+}
+
