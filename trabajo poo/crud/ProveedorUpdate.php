@@ -10,7 +10,7 @@
  $proveedor -> setProvId($prov_id);
 
  $proveedor->modificar();
- header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#proveedor');
+ header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#proveedor');
 
 
 

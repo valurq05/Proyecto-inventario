@@ -10,7 +10,7 @@
  $cliente -> setCliId($cli_id);
 
  $cliente->modificar();
- header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#ventas');
+ header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#ventas');
 
 
 

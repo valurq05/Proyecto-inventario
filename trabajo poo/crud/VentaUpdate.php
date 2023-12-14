@@ -13,7 +13,7 @@ $venta = new Venta($cli_id, $pro_id, $ven_cant, $ven_fecha, $tie_id);
 $venta -> setVenId($ven_id);
 
 $venta->modificar();
-header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#ventas');
+header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#ventas');
 
 
 ?>

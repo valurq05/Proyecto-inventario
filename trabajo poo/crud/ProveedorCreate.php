@@ -9,7 +9,7 @@ $prov_correo = $_POST["prov_correo"];
 $proveedor = new Proveedor($prov_nombre, $prov_telefono, $prov_correo);
 
 $proveedor->guardar();
-header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#proveedor');
+header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#proveedor');
 
 
 ?>

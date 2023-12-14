@@ -11,6 +11,6 @@ $cli_id = $_POST["cli_documento"];
 $venta = new Venta($cli_id, $pro_id, $ven_cant, $ven_fecha, $tie_id);
 
 $venta->guardar();
-header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#ventas');
+header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#ventas');
 
 ?>

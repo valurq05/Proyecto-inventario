@@ -11,7 +11,7 @@ $fecha_recibido = $_POST["fecha_recibido"];
 $productoTienda = new ProductoEnTienda($cant_tienda, $nombre_repartidor, $fecha_recibido, $pro_id, $tie_id);
 
 $productoTienda->guardar();
-header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#tienda');
+header('Location: Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#tienda');
 
 
 ?>

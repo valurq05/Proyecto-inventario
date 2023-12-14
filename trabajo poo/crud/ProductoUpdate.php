@@ -9,6 +9,6 @@
  $producto = new Producto($pro_id, $pro_nombre, $pro_venta, $prov_id);
 
  $producto->modificar();
- header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#productos');
+ header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#productos');
 
 ?>

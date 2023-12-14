@@ -11,7 +11,7 @@
  $administrador = new Administrador($id_admin, $nombre_admin, $cargo, $usuario, $contrasena, $tie_id);
 
  $administrador->modificar();
- header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#admin');
+ header('Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#admin');
 
 
 ?>

@@ -12,7 +12,7 @@
  $producto_tienda -> setPro_Id($id_producto_en_tienda);
 
  $producto_tienda -> modificar();
- header('Location: http://localhost/trabajo%20poo/interfaz/inicio.php#tienda');
+ header('Location: Location: http://localhost/ProyectoPoo2/ProyectoPoo/trabajo%20poo/interfaz/inicio.php#tienda');
 
 
 
