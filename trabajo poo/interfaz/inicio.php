@@ -287,7 +287,12 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
 					<li><button class="btn btn-danger btn-eliminar-proveedor" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
+<<<<<<< HEAD
                     </ul>
+=======
+                    <li><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveedornombre="<?php echo $item['prov_nombre']; ?>" proveedorcorreo="<?php echo $item['prov_correo']; ?>" proveedortelefono="<?php echo $item['prov_telefono']; ?>" onclick="mostrarFormularioModProveedor(this)">Editar</button></li>
+				    </ul>
+>>>>>>> 1264fa60742d932ecbfd82b1f8a783c8a9cd499c
                     </div>
                 <?php endforeach; ?>
             </div>			
@@ -368,7 +373,7 @@ if (!isset($_SESSION["adm_id"])) {
 				<div class="order">
 					<div class="head">
 
-						<h3>Productos disponibles<?php echo $nombreTienda; ?></h3> 
+						<h3>Productos disponibles: <?php echo $nombreTienda; ?></h3> 
 
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
@@ -402,8 +407,6 @@ if (!isset($_SESSION["adm_id"])) {
 							</tr>
 						<?php $totalProductosEnTienda = $row["pro_tienda_cant"] + $totalProductosEnTienda?>
 						<?php }?>
-    
-                    	
 						</tbody>
 					</table>
 				</div>
