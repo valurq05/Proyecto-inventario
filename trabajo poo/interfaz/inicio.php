@@ -43,7 +43,7 @@ if (!isset($_SESSION["adm_id"])) {
 	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<title>ProSystem</title>
 </head>
 <body>
@@ -919,6 +919,8 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/script.js"></script>
 	<script src="../dist/updateProducto.js"></script>
 	<script src="../dist/updateProductoTienda.js"></script>
+	<script src="../dist/eliminarProducto.js"></script>
+
 	
 </body>
 </html>

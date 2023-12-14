@@ -1,18 +1,31 @@
 $(document).ready(function() {
     $('.btn-eliminar').on('click', function() {
         var idProducto = $(this).data('id-producto');
-
-        $.ajax({
-            type: 'POST',
-            url: '/ruta/a/tu/script.php',
-            data: { action: 'eliminar', pro_id: idProducto },
-            success: function(response) {
-                console.log('Producto eliminado con éxito');
-                location.reload();
-            },
-            error: function(error) {
-                console.error('Error al eliminar el producto', error);
+        Swal.fire({
+            title: "Estas seguro de eliminar este producto?",
+            text: "No podras reversar esta accion!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, Eliminar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'POST',
+                    url: '../crud/ProductoDelete.php',
+                    data: {
+                         id:idProducto},
+                    success: function(response) {
+                        location.reload()
+                    },
+                    error: function(error) {
+                        console.error('Error al eliminar el producto', error);
+                    }
+                });
             }
-        });
+          });
+
+    
     });
 });
