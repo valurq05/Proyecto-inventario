@@ -286,8 +286,11 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Nombre: <?php echo $item['prov_nombre'] ?> </li>
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
+<<<<<<< HEAD
+					<li><button class="btn btn-danger btn-eliminar-proveedor" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
+=======
 					<td><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveeNombre="<?php echo $row['prov_nombre']; ?>" proveedorCorreo="<?php echo $row['prov_correo']; ?>" proveedorTelefono="<?php echo $row['pro__telefono']; ?>"  onclick="mostrarFormularioModProTienda(this)">Editar</button></td>
-					<li><button class="btn btn-danger btn-eliminar" data-id-proveedor="<?php echo $item['prov_id'];?>">Eliminar</button></li>
+>>>>>>> 7a21d981cff0fe71902c75c5560ebe5a6f4422f2
                     </ul>
                     </div>
                 <?php endforeach; ?>
@@ -923,6 +926,8 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/updateProducto.js"></script>
 	<script src="../dist/updateProductoTienda.js"></script>
 	<script src="../dist/eliminarProducto.js"></script>
+	<script src="../dist/eliminarProveedor.js"></script>
+
 	<script src="../dist/updateVentas.js"></script>	
 	<script src="../dist/updateCompras.js"></script>	
 </body>
