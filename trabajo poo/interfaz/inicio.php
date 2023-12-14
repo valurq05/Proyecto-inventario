@@ -288,7 +288,7 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Nombre: <?php echo $item['prov_nombre'] ?> </li>
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
-					<li><button class="btn btn-danger btn-eliminar" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
+					<li><button class="btn btn-danger btn-eliminar-proveedor" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
                     </ul>
                     </div>
                 <?php endforeach; ?>
@@ -925,6 +925,8 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/updateProducto.js"></script>
 	<script src="../dist/updateProductoTienda.js"></script>
 	<script src="../dist/eliminarProducto.js"></script>
+	<script src="../dist/eliminarProveedor.js"></script>
+
 	<script src="../dist/updateVentas.js"></script>	
 	<script src="../dist/updateCompras.js"></script>	
 </body>
