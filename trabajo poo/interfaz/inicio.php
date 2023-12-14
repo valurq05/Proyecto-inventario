@@ -369,7 +369,7 @@ if (!isset($_SESSION["adm_id"])) {
 				<div class="order">
 					<div class="head">
 
-						<h3>Productos disponibles<?php echo $nombreTienda; ?></h3> 
+						<h3>Productos disponibles: <?php echo $nombreTienda; ?></h3> 
 
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
@@ -403,8 +403,6 @@ if (!isset($_SESSION["adm_id"])) {
 							</tr>
 						<?php $totalProductosEnTienda = $row["pro_tienda_cant"] + $totalProductosEnTienda?>
 						<?php }?>
-    
-                    	
 						</tbody>
 					</table>
 				</div>
@@ -926,6 +924,6 @@ if (!isset($_SESSION["adm_id"])) {
 	<script src="../dist/updateVentas.js"></script>	
 	<script src="../dist/updateCompras.js"></script>	
 	<script src="../dist/updateProveedor.js"></script>
-	<script src="../dist/eliminarProdcutoTienda.js"></script>
+	<script src="../dist/eliminarProductoTienda.js"></script>
 </body>
 </html>
