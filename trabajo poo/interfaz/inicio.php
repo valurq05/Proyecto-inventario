@@ -288,6 +288,7 @@ if (!isset($_SESSION["adm_id"])) {
                     <li>Nombre: <?php echo $item['prov_nombre'] ?> </li>
                     <li>Telefono: <?php echo $item['prov_telefono'] ?> </li>
                     <li>Correo Electrónico: <?php echo $item['prov_correo'] ?> </li>
+					<td><button type="button" class="btn btn-primary" proveedorid="<?php echo $item['prov_id']; ?>" proveeNombre="<?php echo $row['prov_nombre']; ?>" proveedorCorreo="<?php echo $row['prov_correo']; ?>" proveedorTelefono="<?php echo $row['pro__telefono']; ?>"  onclick="mostrarFormularioModProTienda(this)">Editar</button></td>
 					<li><button class="btn btn-danger btn-eliminar" data-id-proveedor="<?php echo $item['prov_id']; ?>">Eliminar</button></li>
                     </ul>
                     </div>
